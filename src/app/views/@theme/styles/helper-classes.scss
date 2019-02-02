@@ -1,0 +1,29 @@
+.no-margin{
+    margin: 0 !important;
+}
+.no-border{
+    border: none !important;
+}
+
+.no-border-radius{
+    border-radius: none !important;
+}
+
+.list-title{
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.list-subtitle{
+    font-size: 12px;
+    text-align: justify;
+    margin: 0;
+}
+
+.list-date{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    margin: 0;
+}

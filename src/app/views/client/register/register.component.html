@@ -1,0 +1,107 @@
+<div class="row d-flex justify-content-center align-items-center" style="width: 100wh; height: 100%;">
+  <div class="col-md-4 col-sm-8 col-xs-12 ">
+    <nb-card>
+      <nb-card-header class="text-center">
+          <h3>Crear una cuenta</h3>
+          <p>Registrate para realizar alguna operacion</p>
+      </nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="form" (ngSubmit)="registerUser()">
+          <div class="form-group">
+            <label for="">Name</label>
+            <input
+              formControlName="name"
+              name="name"
+              required
+              type="text" 
+              fullWidth
+              nbInput  
+              placeholder="Star Lord">
+          </div>
+          <div class="form-group" *ngIf="f.name.errors">
+            <div class="text-danger">
+              The field name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+                formControlName="email"
+                name="email"
+                required
+                type="email" 
+                fullWidth
+                nbInput  
+                placeholder="example@mail.com">
+          </div>
+          <div class="form-group" *ngIf="f.email.errors">
+            <div class="text-danger">
+              The field email is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input
+                formControlName="password"
+                name="password"
+                required
+                type="password" 
+                fullWidth
+                nbInput  
+                placeholder="**************">
+          </div>
+          <div class="form-group" *ngIf="f.password.errors">
+            <div class="text-danger">
+              The field password is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password Confirmation</label>
+            <input
+                formControlName="password2"
+                name="password2"
+                required
+                type="password" 
+                fullWidth
+                nbInput  
+                placeholder="**************">
+          </div>
+          <div class="form-group" *ngIf="form.errors?.passwordConfirmation && !form.pristine">
+            <div class="text-danger">
+              The passwords aren't equals
+            </div>
+          </div>
+
+          <div class="form-group">
+            <nb-checkbox 
+              formControlName="conditions"
+              name="conditions"
+              status="success">Terminos y condiciones</nb-checkbox>
+          </div>
+          <div class="form-group" *ngIf="form.errors?.acceptCondi && !form.pristine">
+            <div class="text-danger">
+              Debe de aceptar los terminos y condiciones
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button 
+              nbButton 
+              hero
+              fullWidth
+              status="success" 
+              type="submit">Registrarse</button>
+          </div>
+        </form>
+        <div class="text-center">
+          Ya tengo una cuenta? <a routerLink="/login">Ingresar</a>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+  
+  

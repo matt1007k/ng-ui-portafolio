@@ -1,0 +1,25 @@
+<!--<a routerLink="/home" routerLinkActive='active'>Home</a>
+<a routerLink="/dashboard" routerLinkActive='active'>Dashboard</a>
+<a routerLink="/proyectos" routerLinkActive='active'>Proyectos</a>-->
+<nb-layout>
+
+    <nb-layout-header>        
+        <app-navbar-admin
+            [titleh]="title"
+        ></app-navbar-admin>        
+    </nb-layout-header>
+    
+    <nb-sidebar
+        status="success"
+        responsive
+        >
+        <nb-menu tag="menu" [items]="menu_items" ></nb-menu>
+    </nb-sidebar>
+    
+    <nb-layout-column>
+        <router-outlet></router-outlet>
+
+    </nb-layout-column>
+
+
+</nb-layout>
