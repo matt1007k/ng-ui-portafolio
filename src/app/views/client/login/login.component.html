@@ -8,30 +8,34 @@
         <nb-card-body>
           <form ngNativeValidate #f="ngForm" (ngSubmit)="handleSubmit( f )">
             <div class="form-group">
-              <label for="">Email</label>
+              <label for="username">Username</label>
               <input
                   ngModel
-                  name="email"
-                  type="email" 
+                  name="username"
+                  type="text" 
+                  id="username"
                   fullWidth
                   nbInput  
                   required
-                  placeholder="example@mail.com">
+                  placeholder="goku123">
             </div>
             <div class="form-group">
-              <label for="">Password</label>
+              <label for="password">Password</label>
               <input
                   ngModel
                   name="password"
                   type="password" 
+                  id="password"
                   fullWidth
                   nbInput
                   required  
                   placeholder="**************">
             </div>
             <div class="form-group" *ngIf="error">
-                <div class="text-danger">dd
-                  {{message}}
+                <div class="alert alert-danger">
+                  <ul *ngFor="let error of messages.non_field_errors">
+                    <li> {{error}} </li>
+                  </ul>
                 </div>
             </div>
 

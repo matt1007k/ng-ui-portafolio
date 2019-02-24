@@ -8,19 +8,19 @@
       <nb-card-body>
         <form [formGroup]="form" (ngSubmit)="registerUser()">
           <div class="form-group">
-            <label for="">Name</label>
+            <label for="">User Name</label>
             <input
-              formControlName="name"
-              name="name"
+              formControlName="username"
+              name="username"
               required
               type="text" 
               fullWidth
               nbInput  
               placeholder="Star Lord">
           </div>
-          <div class="form-group" *ngIf="f.name.errors">
+          <div class="form-group" *ngIf="f.username.errors">
             <div class="text-danger">
-              The field name is required
+              The field user name is required
             </div>
           </div>
 
@@ -41,21 +41,37 @@
             </div>
           </div>
 
+          <div class="form-group" *ngIf="messages.email">
+              <div class="text-danger">
+                <ul *ngFor="let error of messages.email">
+                  <li>{{ error }}</li>
+                </ul>
+              </div>
+          </div>
+
           <div class="form-group">
             <label for="">Password</label>
             <input
-                formControlName="password"
-                name="password"
+                formControlName="password1"
+                name="password1"
                 required
                 type="password" 
                 fullWidth
                 nbInput  
                 placeholder="**************">
           </div>
-          <div class="form-group" *ngIf="f.password.errors">
+          <div class="form-group" *ngIf="f.password1.errors">
             <div class="text-danger">
               The field password is required
             </div>
+          </div>
+
+          <div class="form-group" *ngIf="messages.password1">
+              <div class="text-danger">
+                <ul *ngFor="let error of messages.password1">
+                  <li>{{ error }}</li>
+                </ul>
+              </div>
           </div>
 
           <div class="form-group">
@@ -74,6 +90,7 @@
               The passwords aren't equals
             </div>
           </div>
+          
 
           <div class="form-group">
             <nb-checkbox 
@@ -86,6 +103,12 @@
               Debe de aceptar los terminos y condiciones
             </div>
           </div>
+
+          <!-- <div class="alert alert-danger" *ngIf="error">
+            <ul *ngFor="let error of messages">
+              <li>{{ error }}</li>
+            </ul>
+          </div> -->
 
           <div class="form-group">
             <button 

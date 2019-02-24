@@ -14,6 +14,9 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
+  error: boolean = false;
+  messages: any = [];
+
   constructor(
     public usersService: UsersService,
     public _router: Router
@@ -51,18 +54,18 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(null, Validators.required),
+      username: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, Validators.required),
+      password1: new FormControl(null, Validators.required),
       password2: new FormControl(null, Validators.required),
       conditions: new FormControl(false),
-    }, { validators: [this.passwordConfirmation('password', 'password2'), this.acceptCondi('conditions')] })
+    }, { validators: [this.passwordConfirmation('password1', 'password2'), this.acceptCondi('conditions')] })
     
     this.form.setValue({
-      name: 'Test ',
-      email: 'test1@example.com',
-      password: '123456',
-      password2: '123456',
+      username: 'test',
+      email: 'test@gmail.com',
+      password1: 'test123456',
+      password2: 'test123456',
       conditions: true
     })
   }
@@ -75,15 +78,22 @@ export class RegisterComponent implements OnInit {
       return;
     }
     let user = new Usuario(
-      this.form.value.name,
+      this.form.value.username,
       this.form.value.email,
-      this.form.value.password
+      this.form.value.password1,
+      this.form.value.password2
     );
 
     this.usersService.registerUser(user)
-      .subscribe(res => {
-          this._router.navigate(['/login'])
-      })
+      .subscribe(
+        res => this._router.navigate(['/admin']),
+        error => {
+          this.error = true;
+          this.messages = error.error
+          console.log(this.messages);
+          
+        }        
+      )
     
   }
 

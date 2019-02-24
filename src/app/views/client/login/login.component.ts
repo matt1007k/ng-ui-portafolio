@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UsersService } from 'src/app/services/index.service';
 import { Usuario } from 'src/app/models/index.model';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   rememberme: boolean = false;
 
   error: boolean = false;
-  message: string = '';
+  messages: any = [];
 
   constructor(
     private router: Router,
@@ -29,16 +30,18 @@ export class LoginComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    let user = new Usuario(null, form.value.email, form.value.password);
+    let user: any = {
+      username: form.value.username,
+      password: form.value.password
+    }
     this._userService.login(user)
-      .subscribe((res: any) => {
-        console.log(res)     
-        if (!res.ok) {
+      .subscribe(
+        (res: any) => this.router.navigate(['/admin']),
+        error => {
           this.error = true;
-          this.message = res.error.message
-        }
-        this.router.navigate(['/admin']);
-      })
+          this.messages = error.error
+        } 
+      )
     
   }
 }
