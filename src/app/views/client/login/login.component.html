@@ -1,64 +1,73 @@
-<div class="row d-flex justify-content-center align-items-center" style="width: 100wh; height: 100%;">
-<div class="col-md-4 col-sm-9 col-xs-12 ">
-      <nb-card>
-        <nb-card-header class="text-center">
-            <h3>Iniciar sesion</h3>
-            <p>Ingrese para realizar alguna operacion</p>
-        </nb-card-header>
-        <nb-card-body>
-          <form ngNativeValidate #f="ngForm" (ngSubmit)="handleSubmit( f )">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input
-                  ngModel
-                  name="username"
-                  type="text" 
-                  id="username"
-                  fullWidth
-                  nbInput  
-                  required
-                  placeholder="goku123">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                  ngModel
-                  name="password"
-                  type="password" 
-                  id="password"
-                  fullWidth
-                  nbInput
-                  required  
-                  placeholder="**************">
-            </div>
-            <div class="form-group" *ngIf="error">
-                <div class="alert alert-danger">
-                  <ul *ngFor="let error of messages.non_field_errors">
-                    <li> {{error}} </li>
-                  </ul>
-                </div>
-            </div>
-
-            <div class="form-group">
-              <nb-checkbox 
-                [(ngModel)]="rememberme"
-                name="rememberme"
-                status="primary">Recordarme</nb-checkbox>
-            </div>
-            <div class="form-group">
-              <button 
-                nbButton 
-                hero
-                fullWidth
-                status="success" 
-                type="submit">Ingresar</button>
-            </div>
-          </form>
-          <div class="text-center">
-            No tengo una cuenta? <a routerLink="/register">Crear cuenta</a>
+<div
+  class="row d-flex justify-content-center align-items-center"
+  style="width: 100wh; height: 100%;"
+>
+  <div class="col-md-4 col-sm-9 col-xs-12 ">
+    <nb-card>
+      <nb-card-header class="text-center">
+        <h3>Iniciar sesion</h3>
+        <p>Ingrese para realizar alguna operacion</p>
+      </nb-card-header>
+      <nb-card-body>
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="handleSubmit(f)">
+          <div class="form-group">
+            <label for="username">Correo Electronico</label>
+            <input
+              ngModel
+              name="email"
+              type="email"
+              id="email"
+              fullWidth
+              nbInput
+              required
+              placeholder="user12@example.com"
+            />
           </div>
-        </nb-card-body>
-      </nb-card>
+          <div class="form-group">
+            <label for="password">Contrasena</label>
+            <input
+              ngModel
+              name="password"
+              type="password"
+              id="password"
+              fullWidth
+              nbInput
+              required
+              placeholder="**************"
+            />
+          </div>
+          <div class="form-group" *ngIf="error">
+            <div class="alert alert-danger">
+              {{ messages | json }}
+            </div>
+          </div>
+
+          <!-- <div class="form-group" *ngIf="error">
+            <div class="alert alert-danger">
+              <ul *ngFor="let error of messages.non_field_errors">
+                <li>{{ error }}</li>
+              </ul>
+            </div>
+          </div> -->
+
+          <div class="form-group">
+            <nb-checkbox
+              [(ngModel)]="rememberme"
+              name="rememberme"
+              status="primary"
+              >Recordarme</nb-checkbox
+            >
+          </div>
+          <div class="form-group">
+            <button nbButton hero fullWidth status="success" type="submit">
+              Ingresar
+            </button>
+          </div>
+        </form>
+        <div class="text-center">
+          No tengo una cuenta? <a routerLink="/register">Crear cuenta</a>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
-

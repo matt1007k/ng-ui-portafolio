@@ -1,6 +1,6 @@
-@import '../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
-@import '~@nebular/theme/styles/global/breakpoints';
+@import "../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~@nebular/theme/styles/global/breakpoints";
 
 @include nb-install-component() {
   display: flex;
@@ -30,6 +30,7 @@
 
   .header-container {
     display: flex;
+    position: relative;
     align-items: center;
     width: auto;
 
@@ -42,7 +43,6 @@
       i {
         display: block;
       }
-
     }
 
     .logo {
@@ -55,6 +55,131 @@
 
       span {
         font-weight: nb-theme(font-weight-normal);
+      }
+    }
+
+    .menu-toggle {
+      cursor: pointer;
+      display: block;
+      margin-right: 15px;
+      .hambuger {
+        width: 30px;
+        &:hover {
+          .item-1 {
+            width: 15px;
+          }
+          .item-2 {
+            width: 30px;
+          }
+        }
+        .item-1,
+        .item-2 {
+          height: 3px;
+          background-color: #000;
+          -webkit-transition-duration: 1s;
+          -moz-transition-duration: 1s;
+          -o-transition-duration: 1s;
+          transition-duration: 1s;
+          -webkit-transition-property: -webkit-transform;
+          -moz-transition-property: -moz-transform;
+          -o-transition-property: -o-transform;
+          transition-property: transform;
+        }
+        .item-1 {
+          margin-bottom: 5px;
+          width: 30px;
+          transition: width ease-in 0.3s;
+        }
+
+        .item-2 {
+          right: 0;
+          width: 15px;
+          transition: width ease-in 0.3s;
+        }
+      }
+      &.active {
+        .hambuger {
+          .item-1 {
+            margin: 0;
+            width: 30px;
+            transform: rotate(45deg) translate(1px, 1px);
+          }
+
+          .item-2 {
+            width: 30px;
+            transform: rotate(-45deg) translate(1px);
+          }
+        }
+      }
+    }
+    .menu-bg {
+      position: fixed;
+      width: 100vw;
+      height: 75vh;
+      left: 0;
+      transform: translateY(-278px);
+      opacity: 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      transition-duration: 1s;
+      -webkit-transition-property: -webkit-transform;
+      -moz-transition-property: -moz-transform;
+      -o-transition-property: -o-transform;
+      transition-property: transform;
+      &.active {
+        transform: translateY(278px);
+        opacity: 1;
+        // margin-top: 278px;
+        .redes {
+          a {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
+      }
+      .redes {
+        display: flex;
+        align-items: flex-end;
+        margin: 0 0 20px 20px;
+        a {
+          transform: translateY(-12px);
+          opacity: 0;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 16px;
+          padding: 10px;
+          &:hover {
+            color: #125d9e;
+          }
+        }
+      }
+      .menu {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        .menu__item {
+          list-style-type: none;
+          padding: 15px;
+          margin-left: 2em;
+          font-size: 35px;
+          text-align: right;
+          &:hover {
+            background-color: rgba(115, 255, 208, 0.4);
+            color: white;
+          }
+          .menu__link {
+            text-decoration: none;
+            &.active {
+              color: #2628e1;
+            }
+          }
+        }
       }
     }
   }
@@ -107,9 +232,9 @@
       animation-name: pulse-light;
 
       &::after {
-        content: ' ';
+        content: " ";
         // hack to be able to set border-radius
-        background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+        background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
         border-radius: 50%;
         pointer-events: none;
 
@@ -154,7 +279,6 @@
   }
 
   @include media-breakpoint-down(md) {
-
     nb-action:not(.toggle-layout) {
       border: none;
     }
@@ -177,14 +301,33 @@
   }
 
   @include media-breakpoint-down(sm) {
-
     nb-user /deep/ .user-name {
       display: none;
+    }
+
+    .header-container {
+      .menu-bg {
+        flex-direction: column-reverse;
+        .redes {
+          margin: 0;
+          a {
+            font-size: 15px;
+          }
+        }
+        .menu {
+          display: flex;
+          flex-direction: column;
+          .menu__item {
+            margin-left: 0em;
+            font-size: 22px;
+            text-align: left;
+          }
+        }
+      }
     }
   }
 
   @include media-breakpoint-down(is) {
-
     .header-container {
       .logo {
         font-size: 1.25rem;

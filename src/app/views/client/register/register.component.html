@@ -1,24 +1,28 @@
-<div class="row d-flex justify-content-center align-items-center" style="width: 100wh; height: 100%;">
+<div
+  class="row d-flex justify-content-center align-items-center"
+  style="width: 100wh; height: 100%;"
+>
   <div class="col-md-4 col-sm-8 col-xs-12 ">
     <nb-card>
       <nb-card-header class="text-center">
-          <h3>Crear una cuenta</h3>
-          <p>Registrate para realizar alguna operacion</p>
+        <h3>Crear una cuenta</h3>
+        <p>Registrate para realizar alguna operacion</p>
       </nb-card-header>
       <nb-card-body>
         <form [formGroup]="form" (ngSubmit)="registerUser()">
           <div class="form-group">
-            <label for="">User Name</label>
+            <label for="">Name</label>
             <input
-              formControlName="username"
-              name="username"
+              formControlName="name"
+              name="name"
               required
-              type="text" 
+              type="text"
               fullWidth
-              nbInput  
-              placeholder="Star Lord">
+              nbInput
+              placeholder="Star Lord"
+            />
           </div>
-          <div class="form-group" *ngIf="f.username.errors">
+          <div class="form-group" *ngIf="f.name.errors">
             <div class="text-danger">
               The field user name is required
             </div>
@@ -27,13 +31,14 @@
           <div class="form-group">
             <label for="">Email</label>
             <input
-                formControlName="email"
-                name="email"
-                required
-                type="email" 
-                fullWidth
-                nbInput  
-                placeholder="example@mail.com">
+              formControlName="email"
+              name="email"
+              required
+              type="email"
+              fullWidth
+              nbInput
+              placeholder="example@mail.com"
+            />
           </div>
           <div class="form-group" *ngIf="f.email.errors">
             <div class="text-danger">
@@ -42,63 +47,70 @@
           </div>
 
           <div class="form-group" *ngIf="messages.email">
-              <div class="text-danger">
-                <ul *ngFor="let error of messages.email">
-                  <li>{{ error }}</li>
-                </ul>
-              </div>
+            <div class="text-danger">
+              {{ messages.email }}
+            </div>
           </div>
 
           <div class="form-group">
             <label for="">Password</label>
             <input
-                formControlName="password1"
-                name="password1"
-                required
-                type="password" 
-                fullWidth
-                nbInput  
-                placeholder="**************">
+              formControlName="password"
+              name="password"
+              required
+              type="password"
+              fullWidth
+              nbInput
+              placeholder="**************"
+            />
           </div>
-          <div class="form-group" *ngIf="f.password1.errors">
+          <div class="form-group" *ngIf="f.password.errors">
             <div class="text-danger">
               The field password is required
             </div>
           </div>
 
-          <div class="form-group" *ngIf="messages.password1">
-              <div class="text-danger">
-                <ul *ngFor="let error of messages.password1">
-                  <li>{{ error }}</li>
-                </ul>
-              </div>
+          <div class="form-group" *ngIf="messages.password">
+            <div class="text-danger">
+              <ul *ngFor="let error of messages.password">
+                <li>{{ error }}</li>
+              </ul>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="">Password Confirmation</label>
             <input
-                formControlName="password2"
-                name="password2"
-                required
-                type="password" 
-                fullWidth
-                nbInput  
-                placeholder="**************">
+              formControlName="password2"
+              name="password2"
+              required
+              type="password"
+              fullWidth
+              nbInput
+              placeholder="**************"
+            />
           </div>
-          <div class="form-group" *ngIf="form.errors?.passwordConfirmation && !form.pristine">
+          <div
+            class="form-group"
+            *ngIf="form.errors?.passwordConfirmation && !form.pristine"
+          >
             <div class="text-danger">
               The passwords aren't equals
             </div>
           </div>
-          
 
           <div class="form-group">
-            <nb-checkbox 
+            <nb-checkbox
               formControlName="conditions"
               name="conditions"
-              status="success">Terminos y condiciones</nb-checkbox>
+              status="success"
+              >Terminos y condiciones</nb-checkbox
+            >
           </div>
-          <div class="form-group" *ngIf="form.errors?.acceptCondi && !form.pristine">
+          <div
+            class="form-group"
+            *ngIf="form.errors?.acceptCondi && !form.pristine"
+          >
             <div class="text-danger">
               Debe de aceptar los terminos y condiciones
             </div>
@@ -111,12 +123,9 @@
           </div> -->
 
           <div class="form-group">
-            <button 
-              nbButton 
-              hero
-              fullWidth
-              status="success" 
-              type="submit">Registrarse</button>
+            <button nbButton hero fullWidth status="success" type="submit">
+              Registrarse
+            </button>
           </div>
         </form>
         <div class="text-center">
@@ -126,5 +135,3 @@
     </nb-card>
   </div>
 </div>
-  
-  

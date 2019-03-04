@@ -12,6 +12,9 @@ import { NavbarClientComponent } from '../partials/navbar-client/navbar-client.c
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { PortafolioComponent } from './portafolio/portafolio.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const PAGES_COMPONENTS = [
     HomeComponent,
@@ -24,7 +27,7 @@ const PAGES_COMPONENTS = [
 
 
 @NgModule({
-    declarations: [...PAGES_COMPONENTS],
+    declarations: [...PAGES_COMPONENTS, ServiciosComponent, PortafolioComponent, ContactoComponent],
     imports: [
         ClientRoutingModule,
         NebularModule,
