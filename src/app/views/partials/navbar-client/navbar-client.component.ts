@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { NbSidebarService, NbMenuService } from "@nebular/theme";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar-client",
@@ -20,12 +21,17 @@ export class NavbarClientComponent implements OnInit {
 
   constructor(
     private sidebarService: NbSidebarService,
-    private menuService: NbMenuService
+    private menuService: NbMenuService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  goToHome() {
+    this.router.navigate(["/"]);
   }
 }

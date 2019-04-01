@@ -1,0 +1,8 @@
+@import "../../@theme/styles/themes";
+
+@include nb-install-component() {
+  img {
+    height: 500px;
+    width: 100%;
+  }
+}

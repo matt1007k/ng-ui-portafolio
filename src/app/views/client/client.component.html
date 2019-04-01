@@ -1,11 +1,12 @@
 <nb-layout>
   <nb-layout-header fixed>
-    <app-navbar-client [items]="menu_items" [title]="title"></app-navbar-client>
+    <app-navbar-client [title]="title"></app-navbar-client>
   </nb-layout-header>
 
-  <nb-layout-column>
-    <!--The content below is only a placeholder and can be replaced.-->
-
+  <nb-layout-column class="body-client">
     <router-outlet></router-outlet>
   </nb-layout-column>
+  <nb-layout-footer>
+    <app-footer-client [anio]="anio"></app-footer-client>
+  </nb-layout-footer>
 </nb-layout>

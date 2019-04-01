@@ -9,7 +9,8 @@ import { itemsClient } from "./client.menu";
 })
 export class ClientComponent implements OnInit {
   menu_items = itemsClient;
-  title = "Learner";
+  title = "LM";
+  anio = new Date().getFullYear();
 
   constructor(private nbMenuServices: NbMenuService) {}
 

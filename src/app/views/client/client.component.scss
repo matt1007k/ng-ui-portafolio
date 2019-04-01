@@ -1,0 +1,7 @@
+@import "../@theme/styles/themes";
+
+@include nb-install-component() {
+  .body-client {
+    background-color: nb-theme(header-bg);
+  }
+}

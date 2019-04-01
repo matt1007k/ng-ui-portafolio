@@ -1,0 +1,15 @@
+@import "../../@theme/styles/themes";
+
+@include nb-install-component() {
+  nb-card,
+  nb-card-body {
+    background: linear-gradient(#4e41a5, #413788);
+    box-shadow: 0px 3px 5px #413788;
+    img {
+      width: 100%;
+    }
+  }
+  .img-experenced {
+    width: 100%;
+  }
+}
