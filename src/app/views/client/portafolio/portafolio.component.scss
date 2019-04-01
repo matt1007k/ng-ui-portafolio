@@ -1,0 +1,24 @@
+@import "../../@theme/styles/themes";
+
+@include nb-install-component() {
+  :host nb-tab {
+    padding: 1.25rem;
+    a.active {
+      color: #fff;
+    }
+  }
+
+  nb-tab {
+    padding: nb-theme(padding);
+  }
+
+  nb-card,
+  nb-card-body {
+    background: linear-gradient(#4e41a5, #413788);
+    box-shadow: 0px 3px 5px #413788;
+    color: #fff;
+    img {
+      width: 100%;
+    }
+  }
+}
