@@ -1,3 +1,79 @@
-<p>
-  category-list works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="d-flex justify-content-between">
+          <div>LIST OF CATEGORIES</div>
+          <button
+            nbButton
+            status="success"
+            size="small"
+            (click)="open(addCategory)"
+          >
+            <i class="eva eva-plus-outline"></i> add category
+          </button>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <table class="nb-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>DESCRIPTION</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fruit of fruits; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ fruit }}</td>
+              <td>{{ fruit }}</td>
+              <td>
+                <button nbButton status="info" size="small">
+                  <i class="eva eva-edit-2-outline"></i>
+                </button>
+                <button nbButton status="danger" size="small">
+                  <i class="eva eva-trash-2-outline"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #addCategory let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>REGISTER CATEGORY OF PROJECT</nb-card-header>
+    <nb-card-body>
+      <div class="mb-3">
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder="Enter name"
+        />
+      </div>
+      <div class="mb-3">
+        <textarea
+          rows="5"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder="Enter description"
+          >{{ ref.context }}</textarea
+        >
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="d-flex justify-content-between">
+        <button nbButton status="danger" (click)="ref.close()">Cancel</button>
+        <button nbButton status="success">Save</button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

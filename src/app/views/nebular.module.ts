@@ -17,7 +17,9 @@ import {
   NbSelectModule,
   NbDatepickerModule,
   NbBadgeModule,
-  NbTabsetModule
+  NbTabsetModule,
+  NbTooltipModule,
+  NbDialogModule
 } from "@nebular/theme";
 
 const componentsNb = [
@@ -36,7 +38,8 @@ const componentsNb = [
   NbRadioModule,
   NbSelectModule,
   NbBadgeModule,
-  NbTabsetModule
+  NbTabsetModule,
+  NbTooltipModule
 ];
 
 @NgModule({
@@ -44,7 +47,8 @@ const componentsNb = [
     ...componentsNb,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
-    NbDatepickerModule.forRoot()
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot()
   ],
   exports: [...componentsNb, NbSidebarModule, NbMenuModule, NbDatepickerModule]
 })

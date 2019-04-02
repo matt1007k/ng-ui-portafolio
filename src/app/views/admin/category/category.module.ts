@@ -1,24 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { CategoryRoutingModule } from './category-routing.module';
+import { CategoryRoutingModule } from "./category-routing.module";
+import { NebularModule } from "../../nebular.module";
 
-import { CategoryListComponent } from './category-list/category-list.component';
-import { CategoryCreateComponent } from './category-create/category-create.component';
-import { CategoryComponent } from './category.component';
+import { CategoryListComponent } from "./category-list/category-list.component";
+import { CategoryCreateComponent } from "./category-create/category-create.component";
+import { CategoryComponent } from "./category.component";
 
 const componentCate = [
   CategoryComponent,
   CategoryListComponent,
   CategoryCreateComponent
-]
+];
 
 @NgModule({
   declarations: [...componentCate],
-  imports: [
-    CommonModule,
-    CategoryRoutingModule
-  ],
+  imports: [CommonModule, CategoryRoutingModule, NebularModule],
   exports: [...componentCate]
 })
-export class CategoryModule { }
+export class CategoryModule {}

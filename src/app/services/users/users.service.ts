@@ -5,12 +5,13 @@ import { Usuario } from "../../models/index.model";
 
 import { URL_SERVER } from "src/app/config/settings";
 import { map } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
 })
 export class UsersService {
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, private router: Router) {}
 
   registerUser(user: Usuario) {
     return this.http.post(`${URL_SERVER}/auth/register`, user, {
@@ -35,6 +36,22 @@ export class UsersService {
           return true;
         })
       );
+  }
+
+  logout() {
+    localStorage.setItem("token", null);
+    localStorage.setItem("user", null);
+    this.router.navigate(["/login"]);
+  }
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem("token") !== null;
+  }
+
+  getAuth(): Usuario {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    return user;
   }
 
   // API DJANGO
