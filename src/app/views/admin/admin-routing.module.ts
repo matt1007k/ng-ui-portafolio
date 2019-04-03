@@ -5,12 +5,14 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProjectComponent } from "./project/project.component";
 import { AdminComponent } from "./admin.component";
 import { AuthGuard } from "../../guards/auth-guard.service";
+import { RoleGuard } from "../../guards/role-guard.service";
 
 const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    data: { role: "ROL_ADMIN" },
     children: [
       {
         path: "dashboard",

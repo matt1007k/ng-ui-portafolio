@@ -9,6 +9,7 @@ import { RegisterComponent } from "./register/register.component";
 import { ServiciosComponent } from "./servicios/servicios.component";
 import { PortafolioComponent } from "./portafolio/portafolio.component";
 import { ContactoComponent } from "./contacto/contacto.component";
+import { GuestGuard } from "../../guards/guest-guard.service";
 
 const rutas: Routes = [
   {
@@ -43,11 +44,13 @@ const rutas: Routes = [
       {
         path: "login",
         component: LoginComponent,
+        canActivate: [GuestGuard],
         data: { title: "Iniciar sesion" }
       },
       {
         path: "register",
         component: RegisterComponent,
+        canActivate: [GuestGuard],
         data: { title: "Crear cuenta" }
       }
     ]

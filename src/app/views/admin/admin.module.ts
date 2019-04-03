@@ -9,7 +9,9 @@ import { AdminComponent } from "./admin.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProjectComponent } from "./project/project.component";
 import { NavbarAdminComponent } from "../partials/navbar-admin/navbar-admin.component";
+
 import { AuthGuard } from "../../guards/auth-guard.service";
+import { RoleGuard } from "../../guards/role-guard.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { AuthGuard } from "../../guards/auth-guard.service";
     NavbarAdminComponent
   ],
   imports: [AdminRoutingModule, NebularModule, CommonModule],
-  providers: [AuthGuard],
+  providers: [AuthGuard, RoleGuard],
   exports: [AdminComponent, DashboardComponent, ProjectComponent]
 })
 export class AdminModule {}

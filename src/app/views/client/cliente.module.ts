@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ServiciosComponent } from "./servicios/servicios.component";
 import { PortafolioComponent } from "./portafolio/portafolio.component";
 import { ContactoComponent } from "./contacto/contacto.component";
+import { GuestGuard } from "src/app/guards/guest-guard.service";
 
 const PAGES_COMPONENTS = [
   HomeComponent,
@@ -40,6 +41,7 @@ const PAGES_COMPONENTS = [
     FormsModule,
     ReactiveFormsModule
   ],
+  providers: [GuestGuard],
   exports: [...PAGES_COMPONENTS]
 })
 export class ClientModule {}
