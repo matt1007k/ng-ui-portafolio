@@ -39,8 +39,7 @@ export class UsersService {
   }
 
   logout() {
-    localStorage.setItem("token", null);
-    localStorage.setItem("user", null);
+    localStorage.clear();
     this.router.navigate(["/login"]);
   }
 
@@ -52,6 +51,10 @@ export class UsersService {
     const user = JSON.parse(localStorage.getItem("user"));
 
     return user;
+  }
+
+  getToken(): string {
+    return localStorage.getItem("token");
   }
 
   // API DJANGO

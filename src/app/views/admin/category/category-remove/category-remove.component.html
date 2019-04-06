@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>REMOVE CATEGORY OF PROJECT</nb-card-header>
+
+  <nb-card-body>
+    <h5>Are you sure to delete the element?</h5>
+    <p>
+      You will not be able to change this operation.
+    </p>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="d-flex justify-content-between">
+      <button nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="deleteCategory()">
+        Save
+      </button>
+    </div>
+  </nb-card-footer>
+</nb-card>

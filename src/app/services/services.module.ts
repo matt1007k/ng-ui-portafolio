@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { UsersService } from './index.service';
+import { UsersService, CategoriesService } from "./index.service";
 
-const servicesApp = [
-  UsersService
-]
+const servicesApp = [UsersService, CategoriesService];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [...servicesApp]
 })
-export class ServicesModule { }
+export class ServicesModule {}
