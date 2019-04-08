@@ -27,7 +27,7 @@ export const itemsAdmin: NbMenuItem[] = [
     icon: "nb-cloudy",
     children: [
       {
-        title: "Todos los servicios",
+        title: "List services",
         icon: "nb-list",
         link: "/admin/servicios"
       }

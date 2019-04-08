@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ProjectComponent } from "./project/project.component";
+
 import { AdminComponent } from "./admin.component";
 import { AuthGuard } from "../../guards/auth-guard.service";
 import { RoleGuard } from "../../guards/role-guard.service";
@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: "proyectos",
-        component: ProjectComponent
+        loadChildren: "./project/project.module#ProjectModule"
       }
     ]
   },

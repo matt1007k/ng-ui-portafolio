@@ -13,6 +13,17 @@ export class CategoriesService {
     this.token = this._usersService.getToken();
   }
 
+  getAllByTitle() {
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      token: this.token
+    });
+
+    return this._http.get(`${URL_SERVER}/categories/by-title`, {
+      headers
+    });
+  }
+
   getAll(desde: number = 0, limit?: number) {
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
