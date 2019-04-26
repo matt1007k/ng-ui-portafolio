@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: "proyectos",
         loadChildren: "./project/project.module#ProjectModule"
+      },
+      {
+        path: "servicios",
+        loadChildren: "./service/service.module#ServiceModule"
       }
     ]
   },

@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
+      <nb-card-header>
+        <div class="d-flex justify-content-between">
+          <div>LIST OF SERVICES ({{ total }})</div>
+          <button
+            nbButton
+            status="success"
+            size="small"
+            (click)="openWithBackdrop()"
+          >
+            <i class="eva eva-plus-outline"></i> add service
+          </button>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="mb-2">
+          <input
+            type="text"
+            #input
+            (keyup)="searchService(input.value)"
+            nbInput
+            placeholder="Search service..."
+          />
+        </div>
+        <table class="nb-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>TITLE</th>
+              <th>DESCRIPTION</th>
+              <th>IMG</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let service of services; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ service.title }}</td>
+              <td>{{ service.description }}</td>
+              <td><img src="" alt="" /></td>
+              <td>
+                <button
+                  nbButton
+                  status="info"
+                  size="small"
+                  (click)="openEdit(service)"
+                >
+                  <i class="eva eva-edit-2-outline"></i>
+                </button>
+                <button
+                  nbButton
+                  status="danger"
+                  size="small"
+                  (click)="openRemove(service)"
+                >
+                  <i class="eva eva-trash-2-outline"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+      <nb-card-footer>
+        <button
+          nbButton
+          outline
+          size="xsmall"
+          status="primary"
+          (click)="changePage(-5)"
+        >
+          <i class="eva eva-arrow-back-outline"></i> Previus
+        </button>
+        <button
+          nbButton
+          outline
+          size="xsmall"
+          status="primary"
+          (click)="changePage(5)"
+        >
+          Next <i class="eva eva-arrow-forward-outline"></i>
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

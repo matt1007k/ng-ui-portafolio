@@ -4,10 +4,16 @@ import { CommonModule } from "@angular/common";
 import {
   UsersService,
   CategoriesService,
-  ProjectsService
+  ProjectsService,
+  ServicesService
 } from "./index.service";
 
-const servicesApp = [UsersService, CategoriesService, ProjectsService];
+const servicesApp = [
+  UsersService,
+  CategoriesService,
+  ProjectsService,
+  ServicesService
+];
 
 @NgModule({
   declarations: [],
